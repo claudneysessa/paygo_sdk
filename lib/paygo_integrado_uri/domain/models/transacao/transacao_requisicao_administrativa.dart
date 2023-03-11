@@ -2,8 +2,8 @@ import 'dart:math' as math;
 
 import 'package:logger/logger.dart';
 
-import '../interfaces/requisicao_interface.dart';
-import '../types/operation.dart';
+import '../../interfaces/requisicao_interface.dart';
+import '../../types/operation.dart';
 
 class TransacaoRequisicaoAdministrativa extends IRequisicao {
   var logger = Logger(

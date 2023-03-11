@@ -1,11 +1,11 @@
-import 'package:paygo_sdk/paygo_integrado_uri/domain/models/paygo_sdk_exception.dart';
+import 'package:paygo_sdk/paygo_integrado_uri/domain/models/exception/paygo_sdk_exception.dart';
 import 'package:paygo_sdk/paygo_integrado_uri/infrastructure/services/paygo_integrado_service.dart';
 
 import '../../domain/interfaces/requisicao_interface.dart';
-import '../../domain/models/dados_automacao.dart';
-import '../../domain/models/personalizacao.dart';
-import '../../domain/models/transacao_requisicao_administrativa.dart';
-import '../../domain/models/transacao_requisicao_venda.dart';
+import '../../domain/models/transacao/transacao_requisicao_administrativa.dart';
+import '../../domain/models/transacao/transacao_requisicao_personalizacao.dart';
+import '../../domain/models/transacao/transacao_requisicao_dados_automacao.dart';
+import '../../domain/models/transacao/transacao_requisicao_venda.dart';
 import '../../domain/types/intent_action.dart';
 
 class PayGOIntegradoRepository {
@@ -35,14 +35,14 @@ class PayGOIntegradoRepository {
   }
 
   Future<bool> administrativo({
-    DadosAutomacao? dadosAutomacao,
+    TransacaoRequisicaoDadosAutomacao? dadosAutomacao,
   }) async {
     try {
       bool retornoMetodo = await _service.iniciarTransacaoUri(
         IntentAction.payment,
         TransacaoRequisicaoAdministrativa(),
         dadosAutomacao ??
-            DadosAutomacao(
+            TransacaoRequisicaoDadosAutomacao(
               'PAYGO',
               '1.0.0.0',
               'Automação',
@@ -52,7 +52,7 @@ class PayGOIntegradoRepository {
               allowDueAmount: true,
               allowShortReceipt: false,
             ),
-        Personalizacao(),
+        TransacaoRequisicaoPersonalizacao(),
       );
 
       return retornoMetodo;
@@ -68,14 +68,14 @@ class PayGOIntegradoRepository {
 
   Future<void> venda(
     TransacaoRequisicaoVenda requisicaoVenda, {
-    DadosAutomacao? dadosAutomacao,
+    TransacaoRequisicaoDadosAutomacao? dadosAutomacao,
   }) async {
     try {
       await _service.iniciarTransacaoUri(
         IntentAction.payment,
         requisicaoVenda,
         dadosAutomacao ??
-            DadosAutomacao(
+            TransacaoRequisicaoDadosAutomacao(
               'PAYGO',
               '1.0.0.0',
               'Automação',
@@ -85,7 +85,7 @@ class PayGOIntegradoRepository {
               allowDueAmount: true,
               allowShortReceipt: false,
             ),
-        Personalizacao(),
+        TransacaoRequisicaoPersonalizacao(),
       );
     } on PayGOSdkException catch (e) {
       throw PayGOSdkException(
@@ -99,14 +99,14 @@ class PayGOIntegradoRepository {
 
   Future<void> generico(
     IRequisicao requisicao, {
-    DadosAutomacao? dadosAutomacao,
+    TransacaoRequisicaoDadosAutomacao? dadosAutomacao,
   }) async {
     try {
       await _service.iniciarTransacaoUri(
         IntentAction.payment,
         requisicao,
         dadosAutomacao ??
-            DadosAutomacao(
+            TransacaoRequisicaoDadosAutomacao(
               'PAYGO',
               '1.0.0.0',
               'Automação',
@@ -116,7 +116,7 @@ class PayGOIntegradoRepository {
               allowDueAmount: true,
               allowShortReceipt: false,
             ),
-        Personalizacao(),
+        TransacaoRequisicaoPersonalizacao(),
       );
     } on PayGOSdkException catch (e) {
       throw PayGOSdkException(

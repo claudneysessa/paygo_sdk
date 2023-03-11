@@ -4,12 +4,12 @@ import 'package:logger/logger.dart';
 import 'package:paygo_sdk/paygo_integrado_uri/domain/types/card_type.dart';
 import 'package:paygo_sdk/paygo_integrado_uri/domain/types/fin_type.dart';
 
-import '../interfaces/requisicao_interface.dart';
-import '../types/currency_code.dart';
-import '../types/operation.dart';
-import '../types/payment_mode.dart';
+import '../../interfaces/requisicao_interface.dart';
+import '../../types/currency_code.dart';
+import '../../types/operation.dart';
+import '../../types/payment_mode.dart';
 
-class TransacaoRequisicaoGenerica extends IRequisicao {
+class TransacaoRequisicaoVenda extends IRequisicao {
   var logger = Logger(
     printer: PrettyPrinter(),
   );
@@ -18,12 +18,11 @@ class TransacaoRequisicaoGenerica extends IRequisicao {
     printer: PrettyPrinter(methodCount: 0),
   );
 
-  Operation operation;
-
+  late Operation _operation;
   late String transactionId;
 
-  double? amount;
-  CurrencyCode? currencyCode;
+  double amount;
+  CurrencyCode currencyCode;
 
   double? boardingTax;
   double? serviceTax;
@@ -46,9 +45,12 @@ class TransacaoRequisicaoGenerica extends IRequisicao {
   Map<String, dynamic>? additionalPosData3;
   Map<String, dynamic>? additionalPosData4;
 
-  TransacaoRequisicaoGenerica({
-    required this.operation,
+  TransacaoRequisicaoVenda({
+    required this.amount,
+    required this.currencyCode,
   }) {
+    _operation = Operation.venda;
+
     transactionId = math.Random().nextInt(999999999).toString();
 
     additionalPosData1 = {
@@ -59,6 +61,7 @@ class TransacaoRequisicaoGenerica extends IRequisicao {
     additionalPosData2 = {
       "operation": obterOperacao.requisicaoOperationString,
       "transactionId": transactionId,
+      "amount": (amount * 100).toInt().toString(),
     };
   }
 
@@ -70,14 +73,8 @@ class TransacaoRequisicaoGenerica extends IRequisicao {
 
     urlVenda += "operation=${obterOperacao.requisicaoOperationString}";
     urlVenda += "&transactionId=$obterIdTransacao";
-
-    if (amount != null) {
-      urlVenda += "&amount=${(amount! * 100).toInt().toString()}";
-    }
-
-    if (currencyCode != null) {
-      urlVenda += "&currencyCode=${currencyCode!.currencyCodeString}";
-    }
+    urlVenda += "&amount=${(amount * 100).toInt().toString()}";
+    urlVenda += "&currencyCode=${currencyCode.currencyCodeString}";
 
     if (boardingTax != null) {
       urlVenda += "&boardingTax=${(boardingTax! * 100).toInt().toString()}";
@@ -165,7 +162,7 @@ class TransacaoRequisicaoGenerica extends IRequisicao {
   }
 
   @override
-  Operation get obterOperacao => operation;
+  Operation get obterOperacao => _operation;
 
   @override
   String get obterIdTransacao => transactionId;

@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class DadosAutomacao {
+class TransacaoRequisicaoDadosAutomacao {
   String posName;
   String posVersion;
   String posDeveloper;
@@ -10,7 +10,7 @@ class DadosAutomacao {
   bool allowShortReceipt;
   bool allowDueAmount;
 
-  DadosAutomacao(
+  TransacaoRequisicaoDadosAutomacao(
     this.posName,
     this.posVersion,
     this.posDeveloper, {
@@ -22,18 +22,18 @@ class DadosAutomacao {
   });
 
   String obterUri() {
-    String urlDadosAutomacao = 'app://payment/posData?';
+    String urlTransacaoRequisicaoDadosAutomacao = 'app://payment/posData?';
 
-    urlDadosAutomacao += 'posDeveloper=$posDeveloper&';
-    urlDadosAutomacao += 'posName=$posName&';
-    urlDadosAutomacao += 'allowDueAmount=$allowDueAmount&';
-    urlDadosAutomacao += 'allowDiscount=$allowDiscount&';
-    urlDadosAutomacao += 'allowCashback=$allowCashback&';
-    urlDadosAutomacao += 'allowShortReceipt=$allowShortReceipt&';
-    urlDadosAutomacao += 'allowDifferentReceipts=$allowDifferentReceipts&';
-    urlDadosAutomacao += 'posVersion=$posVersion';
+    urlTransacaoRequisicaoDadosAutomacao += 'posDeveloper=$posDeveloper&';
+    urlTransacaoRequisicaoDadosAutomacao += 'posName=$posName&';
+    urlTransacaoRequisicaoDadosAutomacao += 'allowDueAmount=$allowDueAmount&';
+    urlTransacaoRequisicaoDadosAutomacao += 'allowDiscount=$allowDiscount&';
+    urlTransacaoRequisicaoDadosAutomacao += 'allowCashback=$allowCashback&';
+    urlTransacaoRequisicaoDadosAutomacao += 'allowShortReceipt=$allowShortReceipt&';
+    urlTransacaoRequisicaoDadosAutomacao += 'allowDifferentReceipts=$allowDifferentReceipts&';
+    urlTransacaoRequisicaoDadosAutomacao += 'posVersion=$posVersion';
 
-    return urlDadosAutomacao;
+    return urlTransacaoRequisicaoDadosAutomacao;
   }
 
   Map<String, dynamic> toMap() {
@@ -49,8 +49,8 @@ class DadosAutomacao {
     };
   }
 
-  factory DadosAutomacao.fromMap(Map<String, dynamic> map) {
-    return DadosAutomacao(
+  factory TransacaoRequisicaoDadosAutomacao.fromMap(Map<String, dynamic> map) {
+    return TransacaoRequisicaoDadosAutomacao(
       map['posName'] as String,
       map['posVersion'] as String,
       map['posDeveloper'] as String,
@@ -64,10 +64,11 @@ class DadosAutomacao {
 
   String toJson() => json.encode(toMap());
 
-  factory DadosAutomacao.fromJson(String source) => DadosAutomacao.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory TransacaoRequisicaoDadosAutomacao.fromJson(String source) =>
+      TransacaoRequisicaoDadosAutomacao.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  bool operator ==(covariant DadosAutomacao other) {
+  bool operator ==(covariant TransacaoRequisicaoDadosAutomacao other) {
     if (identical(this, other)) return true;
 
     return other.posName == posName &&
@@ -94,6 +95,6 @@ class DadosAutomacao {
 
   @override
   String toString() {
-    return 'DadosAutomacao(posName: $posName, posVersion: $posVersion, posDeveloper: $posDeveloper, allowCashback: $allowCashback, allowDiscount: $allowDiscount, allowDifferentReceipts: $allowDifferentReceipts, allowShortReceipt: $allowShortReceipt, allowDueAmount: $allowDueAmount)';
+    return 'TransacaoRequisicaoDadosAutomacao(posName: $posName, posVersion: $posVersion, posDeveloper: $posDeveloper, allowCashback: $allowCashback, allowDiscount: $allowDiscount, allowDifferentReceipts: $allowDifferentReceipts, allowShortReceipt: $allowShortReceipt, allowDueAmount: $allowDueAmount)';
   }
 }

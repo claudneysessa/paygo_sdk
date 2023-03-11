@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-class Personalizacao {
+class TransacaoRequisicaoPersonalizacao {
   String screenBackgroundColor;
   String keyboardBackgroundColor;
   String toolbarBackgroundColor;
@@ -13,7 +13,7 @@ class Personalizacao {
   String toolbarIcon;
   String font;
 
-  Personalizacao({
+  TransacaoRequisicaoPersonalizacao({
     this.screenBackgroundColor = '#F4F4F4',
     this.keyboardBackgroundColor = '#F4F4F4',
     this.toolbarBackgroundColor = '#242424',
@@ -28,22 +28,28 @@ class Personalizacao {
   });
 
   String obterUri() {
-    String urlPersonalizacao = 'app://payment/posCustomization?';
+    String urlTransacaoRequisicaoPersonalizacao = 'app://payment/posCustomization?';
 
-    urlPersonalizacao += (screenBackgroundColor.trim() != '') ? 'screenBackgroundColor=$screenBackgroundColor&' : '';
-    urlPersonalizacao +=
+    urlTransacaoRequisicaoPersonalizacao +=
+        (screenBackgroundColor.trim() != '') ? 'screenBackgroundColor=$screenBackgroundColor&' : '';
+    urlTransacaoRequisicaoPersonalizacao +=
         (keyboardBackgroundColor.trim() != '') ? 'keyboardBackgroundColor=$keyboardBackgroundColor&' : '';
-    urlPersonalizacao += (toolbarBackgroundColor.trim() != '') ? 'toolbarBackgroundColor=$toolbarBackgroundColor&' : '';
-    urlPersonalizacao += (fontColor.trim() != '') ? 'fontColor=$fontColor&' : '';
-    urlPersonalizacao += (editboxBackgroundColor.trim() != '') ? 'editboxBackgroundColor=$editboxBackgroundColor&' : '';
-    urlPersonalizacao += (releasedKeyColor.trim() != '') ? 'releasedKeyColor=$releasedKeyColor&' : '';
-    urlPersonalizacao += (pressedKeyColor.trim() != '') ? 'pressedKeyColor=$pressedKeyColor&' : '';
-    urlPersonalizacao += (keyboardFontColor.trim() != '') ? 'keyboardFontColor=$keyboardFontColor&' : '';
-    urlPersonalizacao += (menuSeparatorColor.trim() != '') ? 'menuSeparatorColor=$menuSeparatorColor&' : '';
-    urlPersonalizacao += (toolbarIcon.trim() != '') ? 'toolbarIcon=$toolbarIcon&' : '';
-    urlPersonalizacao += (font.trim() != '') ? 'font=$font&' : '';
+    urlTransacaoRequisicaoPersonalizacao +=
+        (toolbarBackgroundColor.trim() != '') ? 'toolbarBackgroundColor=$toolbarBackgroundColor&' : '';
+    urlTransacaoRequisicaoPersonalizacao += (fontColor.trim() != '') ? 'fontColor=$fontColor&' : '';
+    urlTransacaoRequisicaoPersonalizacao +=
+        (editboxBackgroundColor.trim() != '') ? 'editboxBackgroundColor=$editboxBackgroundColor&' : '';
+    urlTransacaoRequisicaoPersonalizacao +=
+        (releasedKeyColor.trim() != '') ? 'releasedKeyColor=$releasedKeyColor&' : '';
+    urlTransacaoRequisicaoPersonalizacao += (pressedKeyColor.trim() != '') ? 'pressedKeyColor=$pressedKeyColor&' : '';
+    urlTransacaoRequisicaoPersonalizacao +=
+        (keyboardFontColor.trim() != '') ? 'keyboardFontColor=$keyboardFontColor&' : '';
+    urlTransacaoRequisicaoPersonalizacao +=
+        (menuSeparatorColor.trim() != '') ? 'menuSeparatorColor=$menuSeparatorColor&' : '';
+    urlTransacaoRequisicaoPersonalizacao += (toolbarIcon.trim() != '') ? 'toolbarIcon=$toolbarIcon&' : '';
+    urlTransacaoRequisicaoPersonalizacao += (font.trim() != '') ? 'font=$font&' : '';
 
-    return urlPersonalizacao.replaceAll('#', '%23');
+    return urlTransacaoRequisicaoPersonalizacao.replaceAll('#', '%23');
   }
 
   Map<String, dynamic> toMap() {
@@ -62,8 +68,8 @@ class Personalizacao {
     };
   }
 
-  factory Personalizacao.fromMap(Map<String, dynamic> map) {
-    return Personalizacao(
+  factory TransacaoRequisicaoPersonalizacao.fromMap(Map<String, dynamic> map) {
+    return TransacaoRequisicaoPersonalizacao(
       screenBackgroundColor: map['screenBackgroundColor'] as String,
       keyboardBackgroundColor: map['keyboardBackgroundColor'] as String,
       toolbarBackgroundColor: map['toolbarBackgroundColor'] as String,
@@ -80,10 +86,11 @@ class Personalizacao {
 
   String toJson() => json.encode(toMap());
 
-  factory Personalizacao.fromJson(String source) => Personalizacao.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory TransacaoRequisicaoPersonalizacao.fromJson(String source) =>
+      TransacaoRequisicaoPersonalizacao.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  bool operator ==(covariant Personalizacao other) {
+  bool operator ==(covariant TransacaoRequisicaoPersonalizacao other) {
     if (identical(this, other)) return true;
 
     return other.screenBackgroundColor == screenBackgroundColor &&
@@ -116,6 +123,6 @@ class Personalizacao {
 
   @override
   String toString() {
-    return 'Personalizacao(screenBackgroundColor: $screenBackgroundColor, keyboardBackgroundColor: $keyboardBackgroundColor, toolbarBackgroundColor: $toolbarBackgroundColor, fontColor: $fontColor, editboxBackgroundColor: $editboxBackgroundColor, releasedKeyColor: $releasedKeyColor, pressedKeyColor: $pressedKeyColor, keyboardFontColor: $keyboardFontColor, menuSeparatorColor: $menuSeparatorColor, toolbarIcon: $toolbarIcon, font: $font)';
+    return 'TransacaoRequisicaoPersonalizacao(screenBackgroundColor: $screenBackgroundColor, keyboardBackgroundColor: $keyboardBackgroundColor, toolbarBackgroundColor: $toolbarBackgroundColor, fontColor: $fontColor, editboxBackgroundColor: $editboxBackgroundColor, releasedKeyColor: $releasedKeyColor, pressedKeyColor: $pressedKeyColor, keyboardFontColor: $keyboardFontColor, menuSeparatorColor: $menuSeparatorColor, toolbarIcon: $toolbarIcon, font: $font)';
   }
 }

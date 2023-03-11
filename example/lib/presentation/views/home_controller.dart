@@ -51,18 +51,18 @@ class HomeController extends GetxController {
   }
 
   Future<void> homeStatusChannelClick() async {
-    PayGOIntegradoRepository repository = PayGOIntegradoRepository();
-    await repository.verificarStatusDoChannel();
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.verificarStatusDoChannel();
   }
 
   Future<void> homeAdministrativoclick() async {
-    PayGOIntegradoRepository repository = PayGOIntegradoRepository();
-    await repository.administrativo();
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.administrativo();
   }
 
   Future<void> homeConfiguracaoClick() async {
-    PayGOIntegradoRepository repository = PayGOIntegradoRepository();
-    await repository.generico(
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.generico(
       TransacaoRequisicaoGenerica(
         operation: Operation.configuracao,
       ),
@@ -70,8 +70,8 @@ class HomeController extends GetxController {
   }
 
   Future<void> homeManutencaoClick() async {
-    PayGOIntegradoRepository repository = PayGOIntegradoRepository();
-    await repository.generico(
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.generico(
       TransacaoRequisicaoGenerica(
         operation: Operation.manutencao,
       ),
@@ -79,8 +79,8 @@ class HomeController extends GetxController {
   }
 
   Future<void> homeInstalacaoClick() async {
-    PayGOIntegradoRepository repository = PayGOIntegradoRepository();
-    await repository.generico(
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.generico(
       TransacaoRequisicaoGenerica(
         operation: Operation.instalacao,
       ),
@@ -88,8 +88,8 @@ class HomeController extends GetxController {
   }
 
   Future<void> homeVersaoClick() async {
-    PayGOIntegradoRepository repository = PayGOIntegradoRepository();
-    await repository.generico(
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.generico(
       TransacaoRequisicaoGenerica(
         operation: Operation.versao,
       ),
@@ -97,8 +97,8 @@ class HomeController extends GetxController {
   }
 
   Future<void> homeTesteComunicacaoClick() async {
-    PayGOIntegradoRepository repository = PayGOIntegradoRepository();
-    await repository.generico(
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.generico(
       TransacaoRequisicaoGenerica(
         operation: Operation.testeComunicacao,
       ),
@@ -106,8 +106,8 @@ class HomeController extends GetxController {
   }
 
   Future<void> homeExibirPdcClick() async {
-    PayGOIntegradoRepository repository = PayGOIntegradoRepository();
-    await repository.generico(
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.generico(
       TransacaoRequisicaoGenerica(
         operation: Operation.exibePdc,
       ),
@@ -115,8 +115,8 @@ class HomeController extends GetxController {
   }
 
   Future<void> homeVendaClick() async {
-    PayGOIntegradoRepository repository = PayGOIntegradoRepository();
-    await repository.venda(
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.venda(
       TransacaoRequisicaoVenda(
         amount: 100.99,
         currencyCode: CurrencyCode.iso4217Real,
