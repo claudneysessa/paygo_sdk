@@ -1,0 +1,54 @@
+name: paygo_sdk_example
+description: Demonstrates how to use the paygo_sdk plugin.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+environment:
+  sdk: '>=2.19.2 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  paygo_sdk:
+    path: ../
+
+  receive_intent: ^0.2.3
+  logger: ^1.1.0
+  font_awesome_flutter: ^10.4.0
+  get: ^4.6.5
+
+  cupertino_icons: ^1.0.2
+  google_fonts: ^4.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/static/Inter-thin.ttf
+          weight: 100
+        - asset: assets/fonts/inter/static/Inter-extralight.ttf
+          weight: 200
+        - asset: assets/fonts/inter/static/Inter-light.ttf
+          weight: 300
+        - asset: assets/fonts/inter/static/Inter-regular.ttf
+          weight: 400
+        - asset: assets/fonts/inter/static/Inter-medium.ttf
+          weight: 500
+        - asset: assets/fonts/inter/static/Inter-semibold.ttf
+          weight: 600
+        - asset: assets/fonts/inter/static/Inter-bold.ttf
+          weight: 700
+        - asset: assets/fonts/inter/static/Inter-extrabold.ttf
+          weight: 800
+        - asset: assets/fonts/inter/static/Inter-black.ttf
+          weight: 900
