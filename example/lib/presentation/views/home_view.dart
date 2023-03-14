@@ -6,6 +6,7 @@ import 'package:paygo_sdk_example/commons/widgets/buttons/button_default.dart';
 import 'package:paygo_sdk_example/presentation/views/home_controller.dart';
 
 import '../../commons/widgets/style/application_colors.dart';
+import 'components/menu_item_widget.dart';
 
 class HomeView extends StatefulWidget {
   final String title = 'Exemplo PayGO URI';
@@ -53,152 +54,79 @@ class HomeViewState extends State<HomeView> {
             children: [
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.all(7),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: SizedBox(
-                          height: 60,
-                          child: ButtonDefault(
-                            label: 'Status do Channel',
-                            icone: FontAwesomeIcons.bolt,
-                            primaryColor: ApplicationColors.paygoYellow,
-                            secondaryColor: ApplicationColors.paygoDark,
-                            onTap: controller.homeStatusChannelClick,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(7),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              MenuItemWidget(
+                                label: 'Status do Channel',
+                                onTap: controller.homeStatusChannelClick,
+                              ),
+                              MenuItemWidget(
+                                label: 'Menu Administrativo',
+                                onTap: controller.homeAdministrativoclick,
+                              ),
+                              MenuItemWidget(
+                                label: 'Configurações',
+                                onTap: controller.homeConfiguracaoClick,
+                              ),
+                              MenuItemWidget(
+                                label: 'Manutenção',
+                                onTap: controller.homeManutencaoClick,
+                              ),
+                              MenuItemWidget(
+                                label: 'Instalação',
+                                onTap: controller.homeInstalacaoClick,
+                              ),
+                              MenuItemWidget(
+                                label: 'Versão',
+                                onTap: controller.homeVersaoClick,
+                              ),
+                              MenuItemWidget(
+                                label: 'Teste de Comunicação',
+                                onTap: controller.homeTesteComunicacaoClick,
+                              ),
+                              MenuItemWidget(
+                                label: 'Exibir PDC',
+                                onTap: controller.homeExibirPdcClick,
+                              ),
+                              MenuItemWidget(
+                                label: 'Venda',
+                                onTap: controller.homeVendaClick,
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: SizedBox(
-                          height: 60,
-                          child: ButtonDefault(
-                            label: 'Menu Administrativo',
-                            icone: FontAwesomeIcons.bolt,
-                            primaryColor: ApplicationColors.paygoYellow,
-                            secondaryColor: ApplicationColors.paygoDark,
-                            onTap: controller.homeAdministrativoclick,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: SizedBox(
-                          height: 60,
-                          child: ButtonDefault(
-                            label: 'Configurações',
-                            icone: FontAwesomeIcons.gears,
-                            primaryColor: ApplicationColors.paygoYellow,
-                            secondaryColor: ApplicationColors.paygoDark,
-                            onTap: controller.homeConfiguracaoClick,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: SizedBox(
-                          height: 60,
-                          child: ButtonDefault(
-                            label: 'Manutenção',
-                            icone: FontAwesomeIcons.toolbox,
-                            primaryColor: ApplicationColors.paygoYellow,
-                            secondaryColor: ApplicationColors.paygoDark,
-                            onTap: controller.homeManutencaoClick,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: SizedBox(
-                          height: 60,
-                          child: ButtonDefault(
-                            label: 'Instalação',
-                            icone: FontAwesomeIcons.hourglassEnd,
-                            primaryColor: ApplicationColors.paygoYellow,
-                            secondaryColor: ApplicationColors.paygoDark,
-                            onTap: controller.homeInstalacaoClick,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: SizedBox(
-                          height: 60,
-                          child: ButtonDefault(
-                            label: 'Versão',
-                            icone: FontAwesomeIcons.info,
-                            primaryColor: ApplicationColors.paygoYellow,
-                            secondaryColor: ApplicationColors.paygoDark,
-                            onTap: controller.homeVersaoClick,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: SizedBox(
-                          height: 60,
-                          child: ButtonDefault(
-                            label: 'Teste de Comunicação',
-                            icone: FontAwesomeIcons.arrowsTurnToDots,
-                            primaryColor: ApplicationColors.paygoYellow,
-                            secondaryColor: ApplicationColors.paygoDark,
-                            onTap: controller.homeTesteComunicacaoClick,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: SizedBox(
-                          height: 60,
-                          child: ButtonDefault(
-                            label: 'Exibir PDC',
-                            icone: FontAwesomeIcons.idCard,
-                            primaryColor: ApplicationColors.paygoYellow,
-                            secondaryColor: ApplicationColors.paygoDark,
-                            onTap: controller.homeExibirPdcClick,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: SizedBox(
-                          height: 60,
-                          child: ButtonDefault(
-                            label: 'Venda',
-                            icone: FontAwesomeIcons.cartShopping,
-                            primaryColor: ApplicationColors.paygoYellow,
-                            secondaryColor: ApplicationColors.paygoDark,
-                            onTap: controller.homeVendaClick,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                width: double.infinity,
-                height: 35,
-                color: ApplicationColors.paygoDark[900],
-                child: const Center(
-                  child: Text(
-                    'Versão: 1.0.0.0',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12,
-                      fontFamily: 'Inter',
-                      fontWeight: FontWeight.w600,
+                      ],
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        width: double.infinity,
+        height: 35,
+        color: ApplicationColors.paygoDark[900],
+        child: const Center(
+          child: Text(
+            'Versão: 1.0.0.0',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 12,
+              fontFamily: 'Inter',
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
       ),
     );
   }

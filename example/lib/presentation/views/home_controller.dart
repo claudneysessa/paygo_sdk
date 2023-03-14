@@ -83,7 +83,8 @@ class HomeController extends GetxController {
       )
         ..provider = "DEMO"
         ..cardType = CardType.cartaoDebito
-        ..finType = FinType.aVista,
+        ..finType = FinType.aVista
+        ..originalTransactionNsu = "1234567890",
     );
   }
 }
