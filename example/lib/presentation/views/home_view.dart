@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
-import 'package:paygo_sdk_example/commons/widgets/buttons/button_default.dart';
 import 'package:paygo_sdk_example/presentation/views/home_controller.dart';
 
 import '../../commons/widgets/style/application_colors.dart';
@@ -53,57 +51,55 @@ class HomeViewState extends State<HomeView> {
           Column(
             children: [
               Expanded(
-                child: Container(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(7),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              MenuItemWidget(
-                                label: 'Status do Channel',
-                                onTap: controller.homeStatusChannelClick,
-                              ),
-                              MenuItemWidget(
-                                label: 'Menu Administrativo',
-                                onTap: controller.homeAdministrativoclick,
-                              ),
-                              MenuItemWidget(
-                                label: 'Configurações',
-                                onTap: controller.homeConfiguracaoClick,
-                              ),
-                              MenuItemWidget(
-                                label: 'Manutenção',
-                                onTap: controller.homeManutencaoClick,
-                              ),
-                              MenuItemWidget(
-                                label: 'Instalação',
-                                onTap: controller.homeInstalacaoClick,
-                              ),
-                              MenuItemWidget(
-                                label: 'Versão',
-                                onTap: controller.homeVersaoClick,
-                              ),
-                              MenuItemWidget(
-                                label: 'Teste de Comunicação',
-                                onTap: controller.homeTesteComunicacaoClick,
-                              ),
-                              MenuItemWidget(
-                                label: 'Exibir PDC',
-                                onTap: controller.homeExibirPdcClick,
-                              ),
-                              MenuItemWidget(
-                                label: 'Venda',
-                                onTap: controller.homeVendaClick,
-                              ),
-                            ],
-                          ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(7),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            MenuItemWidget(
+                              label: 'Status do Channel',
+                              onTap: controller.homeStatusChannelClick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Menu Administrativo',
+                              onTap: controller.homeAdministrativoclick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Configurações',
+                              onTap: controller.homeConfiguracaoClick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Manutenção',
+                              onTap: controller.homeManutencaoClick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Instalação',
+                              onTap: controller.homeInstalacaoClick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Versão',
+                              onTap: controller.homeVersaoClick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Teste de Comunicação',
+                              onTap: controller.homeTesteComunicacaoClick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Exibir PDC',
+                              onTap: controller.homeExibirPdcClick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Venda',
+                              onTap: controller.homeVendaClick,
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),
