@@ -188,6 +188,19 @@ Em todas operações do tipo &quot;Transação&quot;, a Automação deve <ins>ob
 
 Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, identificado com a chave "posData". Os seguintes parâmetros devem ser informados:
 
+```Dart
+  TransacaoRequisicaoDadosAutomacao(
+    'PAYGO',
+    '1.0.0.0',
+    'Automação',
+    allowCashback: true,
+    allowDifferentReceipts: true,
+    allowDiscount: true,
+    allowDueAmount: true,
+    allowShortReceipt: false,
+  )
+```
+
 | **Parâmetro** | **Presença** | **Formato** | **Descrição** |
 | --- | --- | --- | --- |
 | posName | M | AN | Nome da Automação. |
@@ -204,6 +217,22 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 Visando fornecer uma experiência visual menos impactante para o usuário, a Automação Comercial pode customizar elementos de interface do cliente PayGo Integrado, de maneira que este tenha uma identidade visual o mais próximo possível da identidade visual da Automação.
 
 Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, identificado com a chave "posCustomization". Os seguintes parâmetros devem ser informados:
+
+```Dart
+  TransacaoRequisicaoPersonalizacao(
+    screenBackgroundColor = '#F4F4F4',
+    keyboardBackgroundColor = '#F4F4F4',
+    toolbarBackgroundColor = '#242424',
+    fontColor = '#000000',
+    editboxBackgroundColor = '#FFFFFF',
+    releasedKeyColor = '#dedede',
+    pressedKeyColor = '#e1e1e1',
+    keyboardFontColor = '#000000',
+    menuSeparatorColor = '#F4F4F4',
+    toolbarIcon = '',
+    font = '',
+  )
+```
 
 | **Parâmetro** | **Presença** | **Formato** | **Descrição** |
 | --- | --- | --- | --- |
