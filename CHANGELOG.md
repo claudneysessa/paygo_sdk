@@ -5,3 +5,7 @@
 ## 0.0.2
 
 * Ajustes na publicação do package
+
+## 0.0.3
+
+* Finalizando a documentação

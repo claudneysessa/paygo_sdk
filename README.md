@@ -1,6 +1,8 @@
 # PayGO SDK
 
-Este package tem como finalidade prover uma interface de abstração para integração com o PayGO Intergrado via URI.
+Este package tem como finalidade prover uma interface de abstração para integração com o PayGO Intergrado via URI efetuando a comunicação via intent com o aplicativo Paygo Integrado fornecido pela Setis.
+
+Favor atentar a versão do aplicativo PayGO Integrado que está instalada no dispositivo, pois existem 2 versões do aplicativo, uma para dispositivos android padrão e uma versão específica para dispositivos da marca Gertec e estas cada uma possui a sua versão de produção e homologação.
 
 ## Instalação
 
@@ -21,6 +23,49 @@ dependencies:
   paygo_sdk:
     git:
       url: #Utilize a URL do repositorio do github
+
+```
+
+## Configurações no AndroidManifest
+
+Adicionar as seguintes instruções no arquivo AndroidManifest.xml:
+
+```xml
+
+  <!-- Permissões -->
+
+  <uses-feature android:name="android.hardware.usb.host"/>
+
+  <uses-permission android:name="android.permission.CAMERA"/>
+  <uses-permission android:name="android.permission.FLASHLIGHT"/>
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+  <uses-permission android:name="android.permission.BLUETOOTH" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+  <uses-permission android:name="android.permission.REORDER_TASKS" />
+
+  <activity>
+
+    .
+    .
+    .
+    .
+    .
+
+    <!-- activity -->
+
+    <intent-filter>
+      <action android:name="br.com.setis.interfaceautomacao.SERVICO"/>
+      <category android:name="android.intent.category.DEFAULT"/>
+      <category android:name="android.intent.category.BROWSABLE" />
+      <data android:scheme="app" android:host="payment" />
+      <data android:scheme="app" android:host="resolve" />
+    </intent-filter>
+
+  </activity>
 
 ```
 
