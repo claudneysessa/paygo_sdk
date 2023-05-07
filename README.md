@@ -188,6 +188,19 @@ Em todas operações do tipo &quot;Transação&quot;, a Automação deve <ins>ob
 
 Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, identificado com a chave "posData". Os seguintes parâmetros devem ser informados:
 
+| **Parâmetro** | **Presença** | **Formato** | **Descrição** |
+| --- | --- | --- | --- |
+| posName | M | AN | Nome da Automação. |
+| posVersion | M | AN | Versão da Automação. |
+| posDeveloper | M | AN | Nome da empresa desenvolvedora da Automação Comercial. |
+| allowCashback | M | B | Indica se a Automação suporta a funcionalidade de troco. |
+| allowDiscount | M | B | Indica se a Automação suporta a funcionalidade de desconto. |
+| allowDifferentReceipts | M | B | Indica se a Automação suporta a impressão de vias diferenciadas para o portador e o lojista. |
+| allowShortReceipt | M | B | Indica se a Automação suporta a impressão da via reduzida. |
+| allowDueAmount | O | B | Indica se a Automação suporta a utilização do saldo total do voucher para abatimento do valor da compra. Se não informado, assume como &quot;falso&quot;. |
+
+### Exemplo de Requisição de Dados da Automação
+
 ```Dart
   TransacaoRequisicaoDadosAutomacao(
     'PAYGO',
@@ -201,22 +214,27 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
   )
 ```
 
-| **Parâmetro** | **Presença** | **Formato** | **Descrição** |
-| --- | --- | --- | --- |
-| posName | M | AN | Nome da Automação. |
-| posVersion | M | AN | Versão da Automação. |
-| posDeveloper | M | AN | Nome da empresa desenvolvedora da Automação Comercial. |
-| allowCashback | M | B | Indica se a Automação suporta a funcionalidade de troco. |
-| allowDiscount | M | B | Indica se a Automação suporta a funcionalidade de desconto. |
-| allowDifferentReceipts | M | B | Indica se a Automação suporta a impressão de vias diferenciadas para o portador e o lojista. |
-| allowShortReceipt | M | B | Indica se a Automação suporta a impressão da via reduzida. |
-| allowDueAmount | O | B | Indica se a Automação suporta a utilização do saldo total do voucher para abatimento do valor da compra. Se não informado, assume como &quot;falso&quot;. |
-
 ## Personalização
 
 Visando fornecer uma experiência visual menos impactante para o usuário, a Automação Comercial pode customizar elementos de interface do cliente PayGo Integrado, de maneira que este tenha uma identidade visual o mais próximo possível da identidade visual da Automação.
 
 Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, identificado com a chave "posCustomization". Os seguintes parâmetros devem ser informados:
+
+| **Parâmetro** | **Presença** | **Formato** | **Descrição** |
+| --- | --- | --- | --- |
+| screenBackgroundColor | O | AN | Cor de fundo de tela. |
+| keyboardBackgroundColor | O | AN | Cor de fundo do teclado. |
+| toolbarBackgroundColor | O | AN | Cor de fundo da barra de ferramentas. |
+| fontColor | O | AN | Cor da fonte dos textos. |
+| editboxBackgroundColor | O | AN | Cor de fundo da caixa de edição de texto. |
+| releasedKeyColor | O | AN | Cor das teclas do teclado virtual da aplicação, quando estiverem liberadas. |
+| pressedKeyColor | O | AN | Cor das teclas do teclado virtual da aplicação, quando estiverem pressionadas. |
+| keyboardFontColor | O | AN | Cor da fonte do teclado. |
+| menuSeparatorColor | O | AN | Cor do separador entre o título de um menu e as opções. |
+| toolbarIcon | O | AN | Ícone usado na barra de ferramentas. |
+| font | O | AN | Fonte utilizada no texto. |
+
+### Exemplo de Requisição de Personalização
 
 ```Dart
   TransacaoRequisicaoPersonalizacao(
@@ -233,20 +251,6 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
     font = '',
   )
 ```
-
-| **Parâmetro** | **Presença** | **Formato** | **Descrição** |
-| --- | --- | --- | --- |
-| screenBackgroundColor | O | AN | Cor de fundo de tela. |
-| keyboardBackgroundColor | O | AN | Cor de fundo do teclado. |
-| toolbarBackgroundColor | O | AN | Cor de fundo da barra de ferramentas. |
-| fontColor | O | AN | Cor da fonte dos textos. |
-| editboxBackgroundColor | O | AN | Cor de fundo da caixa de edição de texto. |
-| releasedKeyColor | O | AN | Cor das teclas do teclado virtual da aplicação, quando estiverem liberadas. |
-| pressedKeyColor | O | AN | Cor das teclas do teclado virtual da aplicação, quando estiverem pressionadas. |
-| keyboardFontColor | O | AN | Cor da fonte do teclado. |
-| menuSeparatorColor | O | AN | Cor do separador entre o título de um menu e as opções. |
-| toolbarIcon | O | AN | Ícone usado na barra de ferramentas. |
-| font | O | AN | Fonte utilizada no texto. |
 
 ## Exemplos
 
