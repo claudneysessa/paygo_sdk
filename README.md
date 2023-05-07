@@ -43,7 +43,7 @@ await repository.integrado.administrativo();
 
 ## Formato da URI
 
-A URI segue o padrão [RFC2396](http://www.faqs.org/rfcs/rfc2396.html). A formatação das URIs trocadas entre a Automação Comercial e o aplicativo PayGo Integrado seguem o seguinte padrão:
+A URI segue o padrão RFC2396. A formatação das URIs trocadas entre a Automação Comercial e o aplicativo PayGo Integrado seguem o seguinte padrão:
 ```xml
 <scheme>://<authority>/<path>?<query>
 ```
