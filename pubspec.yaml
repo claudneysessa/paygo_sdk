@@ -1,6 +1,6 @@
 name: paygo_sdk
 description: Conjunto de ferramentas que Compõem o SDK de integração com o aplicativo PayGO Integrado via URI.
-version: 0.0.3
+version: 0.0.4
 homepage: https://claudneysessa.github.io/
 
 environment:

@@ -74,25 +74,12 @@ class ButtonDefault extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Visibility(
-                            visible: icone != null,
-                            child: Expanded(
-                              flex: 1,
-                              child: Center(
-                                child: FaIcon(
-                                  icone,
-                                  color: ApplicationColors.paygoDark,
-                                  size: 25,
-                                  textDirection: TextDirection.ltr,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Visibility(
                             child: Expanded(
                               flex: 4,
                               child: Text(
                                 label ?? 'label',
                                 overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   color: ApplicationColors.paygoDark,
                                   fontFamily: 'Inter',

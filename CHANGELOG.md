@@ -9,3 +9,7 @@
 ## 0.0.3
 
 * Finalizando a documentação
+
+## 0.0.4
+
+* Update a generic transaction to accept a intentAction

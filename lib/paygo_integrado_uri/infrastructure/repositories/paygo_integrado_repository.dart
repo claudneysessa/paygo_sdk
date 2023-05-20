@@ -1,7 +1,9 @@
 import 'package:paygo_sdk/paygo_integrado_uri/domain/models/exception/paygo_sdk_exception.dart';
 import 'package:paygo_sdk/paygo_integrado_uri/infrastructure/services/paygo_integrado_service.dart';
 
+import '../../domain/interfaces/requisicao_confirmacao_interface.dart';
 import '../../domain/interfaces/requisicao_interface.dart';
+import '../../domain/interfaces/requisicao_pendencia_interface.dart';
 import '../../domain/models/transacao/transacao_requisicao_administrativa.dart';
 import '../../domain/models/transacao/transacao_requisicao_personalizacao.dart';
 import '../../domain/models/transacao/transacao_requisicao_dados_automacao.dart';
@@ -66,8 +68,8 @@ class PayGOIntegradoRepository {
     }
   }
 
-  Future<void> venda(
-    TransacaoRequisicaoVenda requisicaoVenda, {
+  Future<void> venda({
+    required TransacaoRequisicaoVenda requisicaoVenda,
     TransacaoRequisicaoDadosAutomacao? dadosAutomacao,
   }) async {
     try {
@@ -97,13 +99,14 @@ class PayGOIntegradoRepository {
     }
   }
 
-  Future<void> generico(
-    IRequisicao requisicao, {
+  Future<void> generico({
+    required IntentAction intentAction,
+    required IRequisicao requisicao,
     TransacaoRequisicaoDadosAutomacao? dadosAutomacao,
   }) async {
     try {
       await _service.iniciarTransacaoUri(
-        IntentAction.payment,
+        intentAction,
         requisicao,
         dadosAutomacao ??
             TransacaoRequisicaoDadosAutomacao(
@@ -117,6 +120,46 @@ class PayGOIntegradoRepository {
               allowShortReceipt: false,
             ),
         TransacaoRequisicaoPersonalizacao(),
+      );
+    } on PayGOSdkException catch (e) {
+      throw PayGOSdkException(
+        code: 2,
+        platformInfo: e.platformInfo,
+        message: e.message,
+        object: e.object,
+      );
+    }
+  }
+
+  Future<void> confirmarTransacao({
+    required IntentAction intentAction,
+    required IRequisicaoConfirmacao requisicao,
+  }) async {
+    try {
+      await _service.confirmarTransacao(
+        intentAction,
+        requisicao,
+      );
+    } on PayGOSdkException catch (e) {
+      throw PayGOSdkException(
+        code: 2,
+        platformInfo: e.platformInfo,
+        message: e.message,
+        object: e.object,
+      );
+    }
+  }
+
+  Future<void> resolucaoPendencia({
+    required IntentAction intentAction,
+    required String requisicaoPendencia,
+    required IRequisicaoPendencia requisicaoConfirmacao,
+  }) async {
+    try {
+      await _service.resolucaoPendencia(
+        intentAction,
+        requisicaoPendencia,
+        requisicaoConfirmacao,
       );
     } on PayGOSdkException catch (e) {
       throw PayGOSdkException(

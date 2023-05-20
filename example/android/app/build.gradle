@@ -45,11 +45,25 @@ android {
         versionName flutterVersionName
     }
 
+    signingConfigs {
+        gertec {
+            storeFile file('..\\..\\Chaves\\gpos700\\Development_GertecDeveloper_CustomerAPP.jks')
+            storePassword 'Development@GertecDeveloper2018'
+            keyAlias 'developmentgertecdeveloper_customerapp'
+            keyPassword 'Development@GertecDeveloper2018'
+        }
+    }
+
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            shrinkResources false
+            minifyEnabled false
+            signingConfig signingConfigs.gertec
+        }
+        debug {
+            shrinkResources false
+            minifyEnabled false
+            signingConfig signingConfigs.gertec
         }
     }
 }

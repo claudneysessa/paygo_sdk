@@ -82,7 +82,7 @@ public class PaygoSdkPlugin implements FlutterPlugin, ActivityAware, MethodCallH
 
           System.out.println("\n");
           System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
-          System.out.println("| PaygoSdkPlugin");
+          System.out.println("| PaygoSdkPlugin - OK");
           System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
           System.out.println("| - Method: PaygoSdkPlugin.verificarStatusDoChannel");
           System.out.println("| - Mensagem: " + mensagem);
@@ -95,7 +95,7 @@ public class PaygoSdkPlugin implements FlutterPlugin, ActivityAware, MethodCallH
 
           System.out.println("\n");
           System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
-          System.out.println("| PaygoSdkPlugin");
+          System.out.println("| PaygoSdkPlugin - Exception");
           System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
           System.out.println("| - Method: PaygoSdkPlugin.verificarStatusDoChannel");
           System.out.println("| - Error: " + e.toString());
@@ -137,7 +137,7 @@ public class PaygoSdkPlugin implements FlutterPlugin, ActivityAware, MethodCallH
 
           System.out.println("\n");
           System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
-          System.out.println("| PaygoSdkPlugin");
+          System.out.println("| PaygoSdkPlugin - OK");
           System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
           System.out.println("| - Method: PaygoSdkPlugin.iniciarTransacaoUri");
           System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
@@ -149,7 +149,7 @@ public class PaygoSdkPlugin implements FlutterPlugin, ActivityAware, MethodCallH
 
           System.out.println("\n");
           System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
-          System.out.println("| PaygoSdkPlugin");
+          System.out.println("| PaygoSdkPlugin - Exception");
           System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
           System.out.println("| - Method: PaygoSdkPlugin.iniciarTransacaoUri");
           System.out.println("| - Error: " + e.toString());
@@ -158,6 +158,109 @@ public class PaygoSdkPlugin implements FlutterPlugin, ActivityAware, MethodCallH
 
           result.error(
             "Method: iniciarTransacaoUri", 
+            e.toString(), 
+            false
+          );          
+
+        }
+
+        break;
+
+      // Metodo para Confirmar uma Transação via URI
+
+      case "confirmarTransacao":
+
+        try {
+
+          HashMap map = call.argument("args");
+
+          String pIntentAction = (String) map.get("intentAction");
+          String pUri = (String) map.get("requisicao");
+
+          Uri uri = Uri.parse(pUri);
+
+          confirmarTransacao(
+            context, 
+            pIntentAction, 
+            uri
+          );
+
+          System.out.println("\n");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("| PaygoSdkPlugin - OK");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("| - Method: PaygoSdkPlugin.confirmarTransacao");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("\n");
+
+          result.success(true);
+
+        } catch (Exception e) {
+
+          System.out.println("\n");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("| PaygoSdkPlugin - Exception");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("| - Method: PaygoSdkPlugin.confirmarTransacao");
+          System.out.println("| - Error: " + e.toString());
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("\n");
+
+          result.error(
+            "Method: confirmarTransacao", 
+            e.toString(), 
+            false
+          );          
+
+        }
+
+        break;
+
+      // Metodo para Resolução de Penbdência via URI
+
+      case "resolucaoPendencia":
+
+        try {
+
+          HashMap map = call.argument("args");
+
+          String pIntentAction = (String) map.get("intentAction");
+          String pUri = (String) map.get("requisicaoPendencia");
+          String pUriConfirmacao = (String) map.get("requisicaoConfirmacao");
+
+          Uri uri = Uri.parse(pUri);
+          Uri uriConfirmacao = Uri.parse(pUriConfirmacao);
+
+          resolucaoPendencia(
+            context, 
+            pIntentAction, 
+            uri,
+            uriConfirmacao
+          );
+
+          System.out.println("\n");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("| PaygoSdkPlugin - OK");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("| - Method: PaygoSdkPlugin.resolucaoPendencia");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("\n");
+
+          result.success(true);
+
+        } catch (Exception e) {
+
+          System.out.println("\n");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("| PaygoSdkPlugin - Exception");
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("| - Method: PaygoSdkPlugin.resolucaoPendencia");
+          System.out.println("| - Error: " + e.toString());
+          System.out.println("|- - - - - - - - - - - - - - - - - - - - - - ");
+          System.out.println("\n");
+
+          result.error(
+            "Method: resolucaoPendencia", 
             e.toString(), 
             false
           );          
@@ -201,14 +304,69 @@ public class PaygoSdkPlugin implements FlutterPlugin, ActivityAware, MethodCallH
       String dadosAutomacao,
       String personalizacao) {
 
-    Intent transac = new Intent(intentAction, uri);
+    // Documentação PayGO URI
+    // Intent transacao = new Intent("br.com.setis.payment.TRANSACTION", uri);
+    // transacao.putExtra("DadosAutomacao", dadosAutomacao);
+    // transação.putExtra("Personalizacao", personalizacao);
+    // transacao.putExtra("package", getPackageName());
+    // transacao.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    // startActivity(transacao);
 
-    transac.putExtra("DadosAutomacao", dadosAutomacao);
-    transac.putExtra("Personalizacao", personalizacao);
-    transac.putExtra("package", context.getPackageName());
-    transac.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    Intent transacao = new Intent(intentAction, uri);
 
-    context.startActivity(transac);
+    transacao.putExtra("DadosAutomacao", dadosAutomacao);
+    transacao.putExtra("Personalizacao", personalizacao);
+    transacao.putExtra("package", context.getPackageName());
+    transacao.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+    context.startActivity(transacao);
+
+  }
+
+  private void confirmarTransacao(
+      Context context,
+      String intentAction,
+      Uri uri) {
+
+    // Documentação PayGO URI
+    // Intent transacao = new Intent();
+    // transacao.setAction("br.com.setis.confirmation.TRANSACTION");
+    // transacao.putExtra("uri", uri);
+    // transacao.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+    // sendBroadcast(transacao);
+
+    Intent transacao = new Intent();
+
+    transacao.setAction(intentAction);
+    transacao.putExtra("uri", uri);
+    transacao.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+
+    context.sendBroadcast(transacao);
+
+  }
+
+  private void resolucaoPendencia(
+      Context context,
+      String intentAction,
+      Uri uriPendencia,
+      Uri uriConfirmacao) {
+
+    // Documentação PayGO URI
+    // Intent transacao = new Intent();
+    // transacao.setAction("br.com.setis.confirmation.TRANSACTION");
+    // transacao.putExtra("uri", uriPendencia);
+    // transacao.putExtra("Confirmacao", "app://resolve/confirmation?transactionStatus=CONFIRMADO_AUTOMATICO");
+    // transacao.addFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+    // sendBroadcast(transacao);
+
+    Intent transacao = new Intent();
+
+    transacao.setAction(intentAction);
+    transacao.putExtra("uri", uriPendencia);
+    transacao.putExtra("Confirmacao", uriConfirmacao);
+    transacao.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
+
+    context.sendBroadcast(transacao);
 
   }
 

@@ -12,6 +12,8 @@ enum Operation {
   versao,
   configuracao,
   manutencao,
+  confirmacao,
+  resolucaoPendencia,
 }
 
 extension OperationExtension on Operation {
@@ -43,6 +45,10 @@ extension OperationExtension on Operation {
         return 'CONFIGURACAO';
       case Operation.manutencao:
         return 'MANUTENCAO';
+      case Operation.confirmacao:
+        return 'CONFIRMACAO';
+      case Operation.resolucaoPendencia:
+        return 'RESOLUCAO_PENDENCIA';
     }
   }
 }

@@ -1,8 +1,11 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:paygo_sdk/paygo_integrado_uri/domain/models/transacao/transacao_requisicao_confirmacao.dart';
+import 'package:paygo_sdk/paygo_integrado_uri/domain/models/transacao/transacao_requisicao_pendencia.dart';
 import 'package:paygo_sdk/paygo_integrado_uri/domain/types/card_type.dart';
 import 'package:paygo_sdk/paygo_integrado_uri/domain/types/fin_type.dart';
+import 'package:paygo_sdk/paygo_integrado_uri/domain/types/transaction_status.dart';
 
 import 'package:paygo_sdk/paygo_sdk.dart';
 import 'package:paygo_sdk_example/presentation/application/application_controller.dart';
@@ -23,7 +26,8 @@ class HomeController extends GetxController {
   Future<void> homeConfiguracaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.configuracao,
       ),
     );
@@ -32,7 +36,8 @@ class HomeController extends GetxController {
   Future<void> homeManutencaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.manutencao,
       ),
     );
@@ -41,7 +46,8 @@ class HomeController extends GetxController {
   Future<void> homeInstalacaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.instalacao,
       ),
     );
@@ -50,7 +56,8 @@ class HomeController extends GetxController {
   Future<void> homeVersaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.versao,
       ),
     );
@@ -59,7 +66,8 @@ class HomeController extends GetxController {
   Future<void> homeTesteComunicacaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.testeComunicacao,
       ),
     );
@@ -68,7 +76,8 @@ class HomeController extends GetxController {
   Future<void> homeExibirPdcClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.exibePdc,
       ),
     );
@@ -77,7 +86,7 @@ class HomeController extends GetxController {
   Future<void> homeVendaClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.venda(
-      TransacaoRequisicaoVenda(
+      requisicaoVenda: TransacaoRequisicaoVenda(
         amount: 100.99,
         currencyCode: CurrencyCode.iso4217Real,
       )
@@ -85,6 +94,50 @@ class HomeController extends GetxController {
         ..cardType = CardType.cartaoDebito
         ..finType = FinType.aVista
         ..originalTransactionNsu = "1234567890",
+    );
+  }
+
+  Future<void> homeConfirmarAutomaticoClick() async {
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.confirmarTransacao(
+      intentAction: IntentAction.confirmation,
+      requisicao: TransacaoRequisicaoConfirmacao(
+        confirmationTransactionId: '0000545544.1060.921091.2965.DEMO',
+        status: TransactionStatus.confirmadoAutomatico,
+      ),
+    );
+  }
+
+  Future<void> homeConfirmarManualClick() async {
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.confirmarTransacao(
+      intentAction: IntentAction.confirmation,
+      requisicao: TransacaoRequisicaoConfirmacao(
+        confirmationTransactionId: '0000545544.1060.921091.2965.DEMO',
+        status: TransactionStatus.confirmadoManual,
+      ),
+    );
+  }
+
+  Future<void> homeDesfeitoManualClick() async {
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.confirmarTransacao(
+      intentAction: IntentAction.confirmation,
+      requisicao: TransacaoRequisicaoConfirmacao(
+        confirmationTransactionId: '---> Aqui vai o ID da Transação <---',
+        status: TransactionStatus.desfeitoManual,
+      ),
+    );
+  }
+
+  Future<void> homeResolverPendenciaClick() async {
+    PayGOSdk repository = PayGOSdk();
+    await repository.integrado.resolucaoPendencia(
+      intentAction: IntentAction.confirmation,
+      requisicaoPendencia: '---> Aqui vai a URI da Pendência <---',
+      requisicaoConfirmacao: TransacaoRequisicaoPendencia(
+        status: TransactionStatus.desfeitoManual,
+      ),
     );
   }
 }

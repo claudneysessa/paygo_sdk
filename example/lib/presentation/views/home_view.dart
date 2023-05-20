@@ -96,6 +96,18 @@ class HomeViewState extends State<HomeView> {
                               label: 'Venda',
                               onTap: controller.homeVendaClick,
                             ),
+                            MenuItemWidget(
+                              label: 'Confirmar Automatico',
+                              onTap: controller.homeConfirmarAutomaticoClick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Confirmar Manual',
+                              onTap: controller.homeConfirmarManualClick,
+                            ),
+                            MenuItemWidget(
+                              label: 'Desfazer Manual',
+                              onTap: controller.homeDesfeitoManualClick,
+                            ),
                           ],
                         ),
                       ),

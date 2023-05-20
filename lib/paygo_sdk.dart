@@ -11,5 +11,5 @@ class PayGOSdk {
     _repository = PayGOIntegradoRepository();
   }
 
-  get integrado => _repository;
+  PayGOIntegradoRepository get integrado => _repository;
 }
