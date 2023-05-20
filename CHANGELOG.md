@@ -13,3 +13,7 @@
 ## 0.0.4
 
 * Update a generic transaction to accept a intentAction
+
+## 0.0.5
+
+* Ajuste da documentação com a confirmação da transação e a resolucao de pendências

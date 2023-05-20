@@ -215,6 +215,21 @@ A tabela a seguir indica os parâmetros de resposta para uma confirmação:
 | transactionStatus | M | C | Status final da transação. Valores possíveis:<br/><ul><li>CONFIRMADO\_AUTOMATICO (transação confirmada sem intervenção do usuário);</li><li>CONFIRMADO\_MANUAL (transação confirmada a pedido do operador);</li><li>DESFEITO\_MANUAL (transação desfeita a pedido do operador).</li></ul> | 
 | confirmationTransactionId | M | AN | Identificador de confirmação para a transação (recebido na resposta da transação). |
 
+### Exemplo de Confirmação de transação
+
+```dart
+
+  PayGOSdk repository = PayGOSdk();
+  await repository.integrado.confirmarTransacao(
+    intentAction: IntentAction.confirmation,
+    requisicao: TransacaoRequisicaoConfirmacao(
+      confirmationTransactionId: '---> Aqui vai o ID da transação <---',
+      status: TransactionStatus.confirmadoAutomatico,
+    ),
+  );
+
+```
+
 ## Resolução de Pendência – Requisição
 
 A tabela a seguir indica os parâmetros de resposta para resolução de transação pendente:
@@ -226,6 +241,21 @@ A tabela a seguir indica os parâmetros de resposta para resolução de transaç
 | localNsu | M | AN | Obtém o NSU local da transação pendente. |
 | transactionNsu | M | AN | Obtém o NSU do servidor TEF da transação pendente. |
 | hostNsu | M | AN | Obtém o NSU do provedor da transação pendente. |
+
+### Exemplo de Resolução de Pendência
+
+```dart
+
+  PayGOSdk repository = PayGOSdk();
+  await repository.integrado.resolucaoPendencia(
+    intentAction: IntentAction.confirmation,
+    requisicaoPendencia: '---> Aqui vai a URI da Pendência <---',
+    requisicaoConfirmacao: TransacaoRequisicaoPendencia(
+      status: TransactionStatus.desfeitoManual,
+    ),
+  );
+
+```
 
 ## Dados Automação
 
