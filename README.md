@@ -11,7 +11,7 @@ Para instalar o package, adicione o seguinte código no seu arquivo pubspec.yaml
 ```yaml
 
 dependencies:
-  paygo_sdk: ^0.0.1
+  paygo_sdk: ^0.0.7
 
 ```
 

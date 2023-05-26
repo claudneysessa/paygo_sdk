@@ -21,3 +21,7 @@
 ## 0.0.6
 
 * Ajustes na confirmação de transação por URI
+
+## 0.0.7
+
+* Versão Final
