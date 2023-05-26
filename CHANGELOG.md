@@ -17,3 +17,7 @@
 ## 0.0.5
 
 * Ajuste da documentação com a confirmação da transação e a resolucao de pendências
+
+## 0.0.6
+
+* Ajustes na confirmação de transação por URI
