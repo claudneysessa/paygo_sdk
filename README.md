@@ -4,6 +4,16 @@ Este package tem como finalidade prover uma interface de abstração para integr
 
 Favor atentar a versão do aplicativo PayGO Integrado que está instalada no dispositivo, pois existem 2 versões do aplicativo, uma para dispositivos android padrão e uma versão específica para dispositivos da marca Gertec e estas cada uma possui a sua versão de produção e homologação.
 
+## Project Flutter version
+
+```bash
+    flutter --version
+    Flutter 3.7.5 • channel stable • https://github.com/flutter/flutter.git
+    Framework • revision c07f788888 (7 months ago) • 2023-02-22 17:52:33 -0600
+    Engine • revision 0f359063c4
+    Tools • Dart 2.19.2 • DevTools 2.20.1
+```
+
 ## Instalação
 
 Para instalar o package, adicione o seguinte código no seu arquivo pubspec.yaml:
@@ -174,9 +184,9 @@ A tabela a seguir indica os parâmetros de resposta para uma transação:
 | transactionDateTime | O | AN | Data/hora da transação original. |
 | installments | O | N | Número de parcelas. |
 | predatedDate | O | AN | Data do pré-datado. |
-| finType | O | C | Tipo de financiamento. Valores possíveis:<br/><ul><li>FINANCIAMENTO\_NAO\_DEFINIDO;</li><li>A\_VISTA;</li><li>PARCELADO\_EMISSOR;</li><li>PARCELADO\_ESTABELECIMENTO;</li><li>PRE\_DATADO;</li><li>CREDITO\_EMISSOR.</li></ul> | 
+| finType | O | C | Tipo de financiamento. Valores possíveis:<br/><ul><li>FINANCIAMENTO\_NAO\_DEFINIDO;</li><li>A\_VISTA;</li><li>PARCELADO\_EMISSOR;</li><li>PARCELADO\_ESTABELECIMENTO;</li><li>PRE\_DATADO;</li><li>CREDITO\_EMISSOR.</li></ul> |
 | providerName | O | AN | Nome do provedor. |
-| cardType | O | C | Tipo de cartão. Valores possíveis:<br/><ul><li>CARTAO\_DESCONHECIDO;</li><li>CARTAO\_CREDITO;</li><li>CARTAO\_DEBITO;</li><li>CARTAO\_VOUCHER;</li><li>CARTAO\_PRIVATELABEL;</li><li>CARTAO\_FROTA.</li></ul> | 
+| cardType | O | C | Tipo de cartão. Valores possíveis:<br/><ul><li>CARTAO\_DESCONHECIDO;</li><li>CARTAO\_CREDITO;</li><li>CARTAO\_DEBITO;</li><li>CARTAO\_VOUCHER;</li><li>CARTAO\_PRIVATELABEL;</li><li>CARTAO\_FROTA.</li></ul> |
 | cardEntryMode | O | AN | Modo de entrada do cartão. |
 | maskedPan | O | AN | Número do cartão, truncado ou mascarado. |
 | defaultMaskedPan | O | AN | Número do cartão mascarado no formato BIN + \*\*\* + 4 últimos dígitos. Ex: 543211\*\*\*\*\*\*9876. |
@@ -187,7 +197,7 @@ A tabela a seguir indica os parâmetros de resposta para uma transação:
 | aid | O | AN | Aplicação do cartão utilizada durante a transação. |
 | resultMessage | O | AN | Mensagem com descrição do resultado. |
 | authorizerResponse | O | AN | Código de resposta da transação, proveniente da rede adquirente. |
-| printReceipts | O | C | Vias disponíveis para impressão. Valores possíveis:<br/><ul><li>VIA\_NENHUMA;</li><li>VIA\_CLIENTE;</li><li>VIA\_ESTABELECIMENTO;</li><li>VIA\_CLIENTE\_E\_ESTABELECIMENTO.</li></ul> | 
+| printReceipts | O | C | Vias disponíveis para impressão. Valores possíveis:<br/><ul><li>VIA\_NENHUMA;</li><li>VIA\_CLIENTE;</li><li>VIA\_ESTABELECIMENTO;</li><li>VIA\_CLIENTE\_E\_ESTABELECIMENTO.</li></ul> |
 | fullReceipt | O | AN | Comprovente completo. |
 | merchantReceipt | O | AN | Comprovante diferenciado lojista. |
 | cardholderReceipt | O | AN | Comprovante diferenciado para o portador. |
@@ -201,9 +211,9 @@ A tabela a seguir indica os parâmetros de resposta para uma transação:
 | originalAuthorizationCode | O | AN | Código de autorização original. |
 | originalTerminalNsu | O | AN | NSU local gerado na transação original. |
 | pendingTransactionExists | O | B | Indica a existência de transação pendente. |
-| authorizationMode | O | C | Modalidade da transação. Valores possíveis:<br/><ul><li>ON;</li><li>OFF.</li></ul> | 
-| paymentMode | O | C | Modalidade de pagamento. Valores possíveis:<br/><ul><li>PAGAMENTO\_CARTAO;</li><li>PAGAMENTO\_DINHEIRO;</li><li>PAGAMENTO\_CHEQUE;</li><li>PAGAMENTO\_CARTEIRA\_VIRTUAL.</li></ul> | 
-| walletUserId | O | C | Identificação do portador de carteira virtual. Valores possíveis:<br/><ul><li>QRCODE;</li><li>CPF;</li><li>OUTROS.</li></ul> | 
+| authorizationMode | O | C | Modalidade da transação. Valores possíveis:<br/><ul><li>ON;</li><li>OFF.</li></ul> |
+| paymentMode | O | C | Modalidade de pagamento. Valores possíveis:<br/><ul><li>PAGAMENTO\_CARTAO;</li><li>PAGAMENTO\_DINHEIRO;</li><li>PAGAMENTO\_CHEQUE;</li><li>PAGAMENTO\_CARTEIRA\_VIRTUAL.</li></ul> |
+| walletUserId | O | C | Identificação do portador de carteira virtual. Valores possíveis:<br/><ul><li>QRCODE;</li><li>CPF;</li><li>OUTROS.</li></ul> |
 | uniqueId | O | AN | Identificador único da transação armazenado no banco de dados. |
 
 ## Confirmação – Requisição
@@ -212,7 +222,7 @@ A tabela a seguir indica os parâmetros de resposta para uma confirmação:
 
 | **Parâmetro** | **Presença** | **Formato** | **Descrição** |
 | --- | :---: | :---: | --- |
-| transactionStatus | M | C | Status final da transação. Valores possíveis:<br/><ul><li>CONFIRMADO\_AUTOMATICO (transação confirmada sem intervenção do usuário);</li><li>CONFIRMADO\_MANUAL (transação confirmada a pedido do operador);</li><li>DESFEITO\_MANUAL (transação desfeita a pedido do operador).</li></ul> | 
+| transactionStatus | M | C | Status final da transação. Valores possíveis:<br/><ul><li>CONFIRMADO\_AUTOMATICO (transação confirmada sem intervenção do usuário);</li><li>CONFIRMADO\_MANUAL (transação confirmada a pedido do operador);</li><li>DESFEITO\_MANUAL (transação desfeita a pedido do operador).</li></ul> |
 | confirmationTransactionId | M | AN | Identificador de confirmação para a transação (recebido na resposta da transação). |
 
 ### Exemplo de Confirmação de transação
