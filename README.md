@@ -468,3 +468,37 @@ Exte exemplo pula as seleções do provedor, tipo de cartão e tipo de venda, ma
 ## Créditos
 
 Este SDK foi desenvolvido por [Claudney Sarti Sessa](https://github.com/claudneysessa) atendendo as especificações da API de integração do [PayGO Integrado via URI](https://github.com/PGPagamentos/mobile-integracao-uri), fornecido pela [PayGO](https://paygo.com.br/) empresa que oferece produtos para captura de pagamentos físicos, online a fim de facilitar integração com os terminais de pagamento utilizando Dart/Flutter.
+
+## Autor
+
+Projeto desenvolvido por Claudney Sarti Sessa
+
+<table>
+  <tr>
+    <td rowspan="5">
+      <img src="https://avatars.githubusercontent.com/u/12506432?v=4" alt="Claudney Sarti Sessa" style="border-radius: 50%; width: 150px; height: 150px;">
+    </td>
+    <td>GitHub</td>
+    <td><a href="https://github.com/claudneysessa">https://github.com/claudneysessa</a></td>
+  </tr>
+  <tr>
+    <td>GitHub Pages</td>
+    <td><a href="https://claudneysessa.github.io/">https://claudneysessa.github.io</a></td>
+  </tr>
+  <tr>
+    <td>Instagram</td>
+    <td><a href="https://www.instagram.com/claudneysessa/">https://www.instagram.com/claudneysessa</a></td>
+  </tr>
+  <tr>
+    <td>LinkedIn</td>
+    <td><a href="https://www.linkedin.com/in/claudneysessa/">https://www.linkedin.com/in/claudneysessa</a></td>
+  </tr>
+  <tr>
+    <td>Gmail</td>
+    <td><a href="mailto:claudneysartisessa@gmail.com">claudneysartisessa@gmail.com</a></td>
+  </tr>
+</table>
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](https://github.com/claudneysessa/DartPad/blob/master/LICENSE) para mais detalhes.
