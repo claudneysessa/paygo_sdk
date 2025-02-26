@@ -226,14 +226,11 @@ public class PaygoSdkPlugin implements FlutterPlugin, ActivityAware, MethodCallH
           String pUri = (String) map.get("requisicaoPendencia");
           String pUriConfirmacao = (String) map.get("requisicaoConfirmacao");
 
-          Uri uri = Uri.parse(pUri);
-          Uri uriConfirmacao = Uri.parse(pUriConfirmacao);
-
           resolucaoPendencia(
             context, 
             pIntentAction, 
-            uri,
-            uriConfirmacao
+            pUri,
+                  pUriConfirmacao
           );
 
           System.out.println("\n");
@@ -347,8 +344,8 @@ public class PaygoSdkPlugin implements FlutterPlugin, ActivityAware, MethodCallH
   private void resolucaoPendencia(
       Context context,
       String intentAction,
-      Uri uriPendencia,
-      Uri uriConfirmacao) {
+      String uriPendencia,
+      String uriConfirmacao) {
 
     // Documentação PayGO URI
     // Intent transacao = new Intent();
@@ -359,12 +356,10 @@ public class PaygoSdkPlugin implements FlutterPlugin, ActivityAware, MethodCallH
     // sendBroadcast(transacao);
 
     Intent transacao = new Intent();
-
     transacao.setAction(intentAction);
-    transacao.putExtra("uri", uriPendencia);
+    transacao.putExtra("uri",uriPendencia);
     transacao.putExtra("Confirmacao", uriConfirmacao);
-    transacao.setFlags(Intent.FLAG_INCLUDE_STOPPED_PACKAGES);
-
+    transacao.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
     context.sendBroadcast(transacao);
 
   }
