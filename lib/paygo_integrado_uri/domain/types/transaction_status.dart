@@ -2,6 +2,7 @@ enum TransactionStatus {
   confirmadoAutomatico,
   confirmadoManual,
   desfeitoManual,
+  desfeitoLiberacaoMercadoria
 }
 
 extension TransactionStatusExtension on TransactionStatus {
@@ -13,6 +14,8 @@ extension TransactionStatusExtension on TransactionStatus {
         return 'CONFIRMADO_MANUAL';
       case TransactionStatus.desfeitoManual:
         return 'DESFEITO_MANUAL';
+        case TransactionStatus.desfeitoLiberacaoMercadoria:
+          return 'DESFEITO_LIBERACAO_MERCADORIA';
     }
   }
 }
