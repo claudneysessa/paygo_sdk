@@ -21,7 +21,7 @@ Para instalar o package, adicione o seguinte código no seu arquivo pubspec.yaml
 ```yaml
 
 dependencies:
-  paygo_sdk: ^0.0.7
+  paygo_sdk: ^0.0.8
 
 ```
 
@@ -220,10 +220,10 @@ A tabela a seguir indica os parâmetros de resposta para uma transação:
 
 A tabela a seguir indica os parâmetros de resposta para uma confirmação:
 
-| **Parâmetro** | **Presença** | **Formato** | **Descrição** |
-| --- | :---: | :---: | --- |
-| transactionStatus | M | C | Status final da transação. Valores possíveis:<br/><ul><li>CONFIRMADO\_AUTOMATICO (transação confirmada sem intervenção do usuário);</li><li>CONFIRMADO\_MANUAL (transação confirmada a pedido do operador);</li><li>DESFEITO\_MANUAL (transação desfeita a pedido do operador).</li></ul> |
-| confirmationTransactionId | M | AN | Identificador de confirmação para a transação (recebido na resposta da transação). |
+| **Parâmetro** | **Presença** | **Formato** | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                           |
+| --- | :---: | :---: |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| transactionStatus | M | C | Status final da transação. Valores possíveis:<br/><ul><li>CONFIRMADO\_AUTOMATICO (transação confirmada sem intervenção do usuário);</li><li>CONFIRMADO\_MANUAL (transação confirmada a pedido do operador);</li><li>DESFEITO\_MANUAL (transação desfeita a pedido do operador).</li><li>DESFEITO_LIBERACAO_MERCADORIA (transação foi desfeita pela Automação, devido a uma falha no mecanismo de liberação da mercadoria).</li></ul> |
+| confirmationTransactionId | M | AN | Identificador de confirmação para a transação (recebido na resposta da transação).                                                                                                                                                                                                                                                                                                                      |
 
 ### Exemplo de Confirmação de transação
 
@@ -471,11 +471,11 @@ Este SDK foi desenvolvido por [Claudney Sarti Sessa](https://github.com/claudney
 
 ## Autor
 
-Projeto desenvolvido por Claudney Sarti Sessa
+Projeto desenvolvido por Claudney Sarti Sessa e Daniel Oliveira Souza
 
 <table>
   <tr>
-    <td rowspan="5">
+    <td rowspan="6">
       <img src="https://avatars.githubusercontent.com/u/12506432?v=4" alt="Claudney Sarti Sessa" style="border-radius: 50%; width: 150px; height: 150px;">
     </td>
     <td>GitHub</td>
@@ -496,6 +496,16 @@ Projeto desenvolvido por Claudney Sarti Sessa
   <tr>
     <td>Gmail</td>
     <td><a href="mailto:claudneysartisessa@gmail.com">claudneysartisessa@gmail.com</a></td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td rowspan="2">
+      <img src="https://avatars.githubusercontent.com/u/14188942?v=4" alt="dosza" style="border-radius: 50%; width: 150px; height: 150px;">
+    </td>
+    <td>GitHub</td>
+    <td><a href="https://github.com/dosza">https://github.com/dosza</a></td>
   </tr>
 </table>
 
