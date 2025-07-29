@@ -25,3 +25,11 @@
 ## 0.0.7
 
 * Versão Final
+
+## 0.0.8
+
++ Adiciona suporte a desfazimento por liberação por mercadoria
++ Adiciona suporte Android SDK 34
++ Corrige URI de resolução de transação pendente
++ Corrige arredondamento de valores para transações
++ Corrige build.gradle para Android SDK 34
