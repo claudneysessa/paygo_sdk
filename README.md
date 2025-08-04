@@ -475,8 +475,8 @@ Projeto desenvolvido por Claudney Sarti Sessa e Daniel Oliveira Souza
 
 <table>
   <tr>
-    <td rowspan="6">
-      <img src="https://avatars.githubusercontent.com/u/12506432?v=4" alt="Claudney Sarti Sessa" style="border-radius: 50%; width: 150px; height: 150px;">
+    <td rowspan="5" style="text-align:center;">
+      <img src="https://avatars.githubusercontent.com/u/12506432?v=4" alt="Claudney Sarti Sessa" width="150" height="150" style="border-radius: 50%; display: block; margin: 0 auto;">
     </td>
     <td>GitHub</td>
     <td><a href="https://github.com/claudneysessa">https://github.com/claudneysessa</a></td>
@@ -497,15 +497,14 @@ Projeto desenvolvido por Claudney Sarti Sessa e Daniel Oliveira Souza
     <td>Gmail</td>
     <td><a href="mailto:claudneysartisessa@gmail.com">claudneysartisessa@gmail.com</a></td>
   </tr>
-</table>
 
-<table>
   <tr>
-    <td rowspan="2">
-      <img src="https://avatars.githubusercontent.com/u/14188942?v=4" alt="dosza" style="border-radius: 50%; width: 150px; height: 150px;">
+    <td rowspan="1" style="text-align:center;">
+      <img src="https://avatars.githubusercontent.com/u/15186872?v=4" alt="Claudney Sarti Sessa" width="150" height="150" style="border-radius: 50%; display: block; margin: 0 auto;">
     </td>
     <td>GitHub</td>
     <td><a href="https://github.com/dosza">https://github.com/dosza</a></td>
+  </tr>
   </tr>
 </table>
 
