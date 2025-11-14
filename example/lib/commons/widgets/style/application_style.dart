@@ -6,9 +6,9 @@ class ApplicationStyle {
   static final ThemeData applicationThemeData = ThemeData(
     primaryColor: ApplicationColors.paygoYellow,
     primaryColorLight: ApplicationColors.paygoYellow,
+    primaryColorDark: ApplicationColors.paygoDark, // Moved here
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: ApplicationColors.paygoYellow,
-      primaryColorDark: ApplicationColors.paygoDark,
       accentColor: ApplicationColors.paygoDark,
     ),
     scaffoldBackgroundColor: Colors.white,
@@ -91,24 +91,16 @@ class ApplicationStyle {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
-        // backgroundColor: MaterialStateProperty.resolveWith<Color?>(
-        //   (Set<MaterialState> states) {
-        //     if (states.contains(MaterialState.pressed)) {
-        //       return paygoYellow[900];
-        //     }
-        //     return paygoYellow[900];
-        //   },
-        // ),
-        foregroundColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-            if (states.contains(MaterialState.pressed)) {
+        foregroundColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) {
+            if (states.contains(WidgetState.pressed)) {
               return ApplicationColors.paygoDark[900];
             }
             return ApplicationColors.paygoDark[900];
           },
         ),
-        textStyle: MaterialStateProperty.resolveWith<TextStyle?>(
-          (Set<MaterialState> states) {
+        textStyle: WidgetStateProperty.resolveWith<TextStyle?>(
+          (Set<WidgetState> states) {
             return const TextStyle(
               color: Colors.white,
               fontSize: 16,
@@ -117,9 +109,9 @@ class ApplicationStyle {
             );
           },
         ),
-        overlayColor: MaterialStateProperty.resolveWith<Color?>(
-          (Set<MaterialState> states) {
-            if (states.contains(MaterialState.pressed)) {
+        overlayColor: WidgetStateProperty.resolveWith<Color?>(
+          (Set<WidgetState> states) {
+            if (states.contains(WidgetState.pressed)) {
               return ApplicationColors.paygoYellow[800];
             }
             return null;
