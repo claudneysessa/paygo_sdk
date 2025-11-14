@@ -82,7 +82,7 @@ class ButtonDefault extends StatelessWidget {
                                 textAlign: TextAlign.center,
                                 style: const TextStyle(
                                   color: ApplicationColors.paygoDark,
-                                  fontFamily: 'Inter',
+                                  fontFamily: 'DefaultFont',
                                   fontSize: 20,
                                   fontWeight: FontWeight.w400,
                                 ),

@@ -130,7 +130,7 @@ class HomeViewState extends State<HomeView> {
             style: TextStyle(
               color: Colors.white,
               fontSize: 12,
-              fontFamily: 'Inter',
+              fontFamily: 'DefaultFont',
               fontWeight: FontWeight.w600,
             ),
           ),
