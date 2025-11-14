@@ -33,3 +33,12 @@
 + Corrige URI de resolução de transação pendente
 + Corrige arredondamento de valores para transações
 + Corrige build.gradle para Android SDK 34
+
+# 0.1.0
+
++ Atualiza [example](/example)
++ Reconfigura Flutter Plugin para Android SDK 35
++ AGP 8.6.0
++ Gradle 8.9.0
++ Kotlin 2.1.0
++ Remove Google Fonts
