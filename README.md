@@ -1,42 +1,110 @@
+<div align="center">
+
+<img src="./example/assets/images/logo/logo_paygo_transparente.png" alt="PayGo" width="220">
+
 # PayGO SDK
 
-Este package tem como finalidade prover uma interface de abstração para integração com o PayGO Intergrado via URI efetuando a comunicação via intent com o aplicativo Paygo Integrado fornecido pela Setis.
+### Integração do PayGO Integrado para aplicações Flutter
 
-Favor atentar a versão do aplicativo PayGO Integrado que está instalada no dispositivo, pois existem 2 versões do aplicativo, uma para dispositivos android padrão e uma versão específica para dispositivos da marca Gertec e estas cada uma possui a sua versão de produção e homologação.
+Uma biblioteca de apoio a desenvolvedores que abstrai a comunicação por URI e
+Android Intent com o aplicativo PayGO Integrado.
 
-## Project Flutter version
+[![Flutter](https://img.shields.io/badge/Flutter-3.7.5-02569B?logo=flutter&logoColor=white)](https://flutter.dev/)
+[![Dart](https://img.shields.io/badge/Dart-2.19.2-0175C2?logo=dart&logoColor=white)](https://dart.dev/)
+[![Android](https://img.shields.io/badge/plataforma-Android-3DDC84?logo=android&logoColor=white)](https://developer.android.com/)
+[![PayGO Integrado](https://img.shields.io/badge/integra%C3%A7%C3%A3o-PayGO-FFD000)](https://paygo.com.br/)
+[![Versão](https://img.shields.io/badge/vers%C3%A3o-0.1.0-5C6BC0)](./CHANGELOG.md)
+[![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-blue)](./LICENSE)
 
-```bash
-    flutter --version
-    Flutter 3.7.5 • channel stable • https://github.com/flutter/flutter.git
-    Framework • revision c07f788888 (7 months ago) • 2023-02-22 17:52:33 -0600
-    Engine • revision 0f359063c4
-    Tools • Dart 2.19.2 • DevTools 2.20.1
+[Começar a usar](#instalação) ·
+[Ver exemplos](#exemplos) ·
+[Consultar operações](#parâmetros-das-operações) ·
+[Aplicativo de exemplo](./example)
+
+</div>
+
+## Sobre o projeto
+
+O **PayGO SDK** nasceu de uma parceria com a **PayGo** para oferecer uma
+ferramenta de apoio a programadores que integram aplicações Flutter ao
+PayGO Integrado.
+
+A biblioteca encapsula a montagem das URIs, o envio das requisições por
+Android Intent e a interpretação das respostas da integração. Com isso, quem
+desenvolve a automação comercial pode trabalhar com objetos e operações em Dart
+em vez de montar manualmente cada mensagem do protocolo.
+
+O SDK contempla fluxos como:
+
+- venda e operações administrativas;
+- configuração, manutenção e instalação;
+- confirmação de transações;
+- resolução de pendências;
+- consulta de versão e teste de comunicação;
+- personalização da experiência do PayGO Integrado;
+- conversão da resposta recebida para objetos Dart.
+
+> [!IMPORTANT]
+> O funcionamento depende do aplicativo PayGO Integrado instalado e configurado
+> no dispositivo Android. Existem distribuições para dispositivos Android
+> convencionais e versões específicas para equipamentos Gertec, com ambientes
+> próprios de produção e homologação.
+
+## Tecnologias
+
+- **Flutter e Dart:** API pública e modelos utilizados pela aplicação cliente.
+- **Android Intent:** abertura do PayGO Integrado e envio das operações.
+- **URI:** representação das requisições, confirmações e respostas do protocolo.
+- **PayGO Integrado:** aplicativo responsável pelo processamento das operações.
+
+## Como funciona
+
+```text
+Aplicação Flutter
+      ↓
+PayGO SDK — objetos Dart e montagem da URI
+      ↓
+Android Intent
+      ↓
+PayGO Integrado
+      ↓
+Resposta por URI convertida em objeto Dart
 ```
+
+## Compatibilidade de referência
+
+O projeto foi configurado originalmente com:
+
+```text
+Flutter 3.7.5
+Dart 2.19.2
+Android
+```
+
+O `pubspec.yaml` aceita Flutter a partir da versão `2.5.0` e Dart
+`>=2.19.2 <3.0.0`. Projetos que utilizem versões mais recentes devem validar a
+compatibilidade antes de adotar o SDK.
 
 ## Instalação
 
-Para instalar o package, adicione o seguinte código no seu arquivo pubspec.yaml:
+Enquanto o pacote não for distribuído em um registro público, adicione a
+dependência diretamente pelo repositório Git:
 
 ```yaml
-
-dependencies:
-  paygo_sdk: ^0.0.8
-
-```
-
-Observação : se você estiver usando o canal Flutter `master`, se encontrar problemas de compilação ou quiser experimentar uma versão melhor e mais recente, utilize a versão mais atual apontando para a `master` e não uma versão de lançamento específica. Para fazer isso, use a seguinte configuração no seu pubspec.yaml:
-
-```yaml
-
 dependencies:
   paygo_sdk:
     git:
-      url: #Utilize a URL do repositorio do github
-
+      url: https://github.com/claudneysessa/paygo_sdk.git
+      ref: main
 ```
 
-## Configurações no AndroidManifest
+Em seguida, instale as dependências:
+
+```bash
+flutter pub get
+```
+
+## Configuração do Android
 
 Adicionar as seguintes instruções no arquivo AndroidManifest.xml:
 
@@ -79,7 +147,7 @@ Adicionar as seguintes instruções no arquivo AndroidManifest.xml:
 
 ```
 
-## Uso
+## Primeiro uso
 
 Para utilizar o package, basta importar o mesmo no seu arquivo dart:
 
@@ -286,7 +354,7 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ### Exemplo de Requisição de Dados da Automação
 
-```Dart
+```dart
   TransacaoRequisicaoDadosAutomacao(
     'PAYGO',
     '1.0.0.0',
@@ -321,7 +389,7 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ### Exemplo de Requisição de Personalização
 
-```Dart
+```dart
   TransacaoRequisicaoPersonalizacao(
     screenBackgroundColor = '#F4F4F4',
     keyboardBackgroundColor = '#F4F4F4',
@@ -339,7 +407,7 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ## Exemplos
 
-## Solicitar abertura do menu administrativo
+### Solicitar abertura do menu administrativo
 
 ```dart
 
@@ -350,14 +418,15 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ```
 
-## Solicitar abertura do menu de configuração
+### Solicitar abertura do menu de configuração
 
 ```dart
 
   Future<void> homeConfiguracaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.configuracao,
       ),
     );
@@ -365,14 +434,15 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ```
 
-## Solicitar abertura do menu de manutenção
+### Solicitar abertura do menu de manutenção
 
 ```dart
 
   Future<void> homeManutencaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.manutencao,
       ),
     );
@@ -380,14 +450,15 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ```
 
-## Solicitar abertura do menu de instalação
+### Solicitar abertura do menu de instalação
 
 ```dart
 
   Future<void> homeInstalacaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.instalacao,
       ),
     );
@@ -395,14 +466,15 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ```
 
-## Solicitar dados da versão da integração
+### Solicitar dados da versão da integração
 
 ```dart
 
   Future<void> homeVersaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.versao,
       ),
     );
@@ -410,14 +482,15 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ```
 
-## Iniciar teste de comunicação
+### Iniciar teste de comunicação
 
 ```dart
 
   Future<void> homeTesteComunicacaoClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.testeComunicacao,
       ),
     );
@@ -425,14 +498,15 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ```
 
-## Exibir código do PDC
+### Exibir código do PDC
 
 ```dart
 
   Future<void> homeExibirPdcClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.generico(
-      TransacaoRequisicaoGenerica(
+      intentAction: IntentAction.payment,
+      requisicao: TransacaoRequisicaoGenerica(
         operation: Operation.exibePdc,
       ),
     );
@@ -440,20 +514,22 @@ Esses dados também são enviados como uma URI, porém em um _Bundle_ separado, 
 
 ```
 
-## Iniciar uma venda
+### Iniciar uma venda
 
 Este exemplo mostra como iniciar uma venda com o PayGO Integrado.
 
-No caso abaixo, estamos solicitando uma venda de R$ 100,99 com o cartão de débito, a vista, utilizando o provedor DEMO, que é um provedor de teste.
+No caso abaixo, estamos solicitando uma venda de R$ 100,99 com cartão de débito,
+à vista, utilizando o provedor DEMO, que é um provedor de teste.
 
-Exte exemplo pula as seleções do provedor, tipo de cartão e tipo de venda, mas é possível deixar o usuário escolher essas opções.
+Este exemplo antecipa as seleções de provedor, tipo de cartão e modalidade de
+venda, mas a aplicação pode permitir que o usuário escolha essas opções.
 
 ```dart
 
   Future<void> homeVendaClick() async {
     PayGOSdk repository = PayGOSdk();
     await repository.integrado.venda(
-      TransacaoRequisicaoVenda(
+      requisicaoVenda: TransacaoRequisicaoVenda(
         amount: 100.99,
         currencyCode: CurrencyCode.iso4217Real,
       )
@@ -465,13 +541,17 @@ Exte exemplo pula as seleções do provedor, tipo de cartão e tipo de venda, ma
 
 ```
 
-## Créditos
+## Parceria, autoria e créditos
 
-Este SDK foi desenvolvido por [Claudney Sarti Sessa](https://github.com/claudneysessa) atendendo as especificações da API de integração do [PayGO Integrado via URI](https://github.com/PGPagamentos/mobile-integracao-uri), fornecido pela [PayGO](https://paygo.com.br/) empresa que oferece produtos para captura de pagamentos físicos, online a fim de facilitar integração com os terminais de pagamento utilizando Dart/Flutter.
+O PayGO SDK foi desenvolvido por **Claudney Sarti Sessa** e
+**Daniel Oliveira Souza**, em parceria com a **PayGo**, como uma ferramenta de
+apoio à comunidade de desenvolvedores que integra automações comerciais ao
+PayGO Integrado.
 
-## Autor
-
-Projeto desenvolvido por Claudney Sarti Sessa e Daniel Oliveira Souza
+A implementação segue as especificações públicas do projeto
+[PayGO Integrado via URI](https://github.com/PGPagamentos/mobile-integracao-uri).
+PayGO, PayGO Integrado e suas identidades visuais pertencem aos seus respectivos
+titulares.
 
 <table>
   <tr>
@@ -500,14 +580,15 @@ Projeto desenvolvido por Claudney Sarti Sessa e Daniel Oliveira Souza
 
   <tr>
     <td rowspan="1" style="text-align:center;">
-      <img src="https://avatars.githubusercontent.com/u/15186872?v=4" alt="Claudney Sarti Sessa" width="150" height="150" style="border-radius: 50%; display: block; margin: 0 auto;">
+      <img src="https://avatars.githubusercontent.com/u/15186872?v=4" alt="Daniel Oliveira Souza" width="150" height="150" style="border-radius: 50%; display: block; margin: 0 auto;">
     </td>
     <td>GitHub</td>
     <td><a href="https://github.com/dosza">https://github.com/dosza</a></td>
-  </tr>
   </tr>
 </table>
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](https://github.com/claudneysessa/DartPad/blob/master/LICENSE) para mais detalhes.
+O código deste projeto é disponibilizado sob a
+[Licença MIT](./LICENSE). Marcas, logotipos, documentação e componentes de
+terceiros permanecem sujeitos aos direitos de seus respectivos titulares.
